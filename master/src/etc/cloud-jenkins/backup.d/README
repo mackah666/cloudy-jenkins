@@ -1,0 +1,29 @@
+Add files to this directory to specify additional patterns of paths to be
+included in the cloud Jenkins backup files.
+
+Blank lines, and lines starting with the # character, are ignored.
+
+Other lines should start with a / character, and are converted into a -regex
+argument for the "find" command by replacing the first / with ^/var/lib/jenkins
+and adding a $ to the end.
+
+For example:
+
+/[^/]+\.xml
+/jobs/[^/]+/config\.xml
+
+becomes part of a command similar to:
+
+find /var/lib/jenkins \
+  -regex '^/var/lib/jenkins/[^/]+\.xml$' \
+  -o \
+  -regex '^/var/lib/jenkins/jobs/[^/]+/config\.xml$'
+
+which would list all of the xml files directly under /var/lib/jenkins and all
+of the config.xml files in the job directories.
+
+Be aware that the contents of any listed directories are not automatically
+included, so /jobs/[^/]+ will list all of the job directories but not anything
+under them.  That particular pattern could be changed to /jobs/.+ to pull in
+the job directories _and_ everything below them, but this leads to very large
+backups containing copies of build workspaces and artifacts.

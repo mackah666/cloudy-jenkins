@@ -1,0 +1,1 @@
+Executable files in this directory are run as the root user before the Jenkins agent starts.

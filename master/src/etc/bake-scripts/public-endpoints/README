@@ -1,0 +1,8 @@
+Add files to this directory containing one or more lines, each of which is a
+path that should be publicly exposed without requiring a client certificate.
+
+WARNING: PUBLICLY EXPOSED MEANS EVERYONE ON THE INTERNET WILL HAVE ACCESS TO
+THE PATH AND EVERYTHING UNDER IT. BE *VERY* CAREFUL ABOUT WHAT YOU EXPOSE.
+
+Example content:
+/ghprbhook

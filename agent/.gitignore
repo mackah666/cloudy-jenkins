@@ -1,0 +1,6 @@
+.*.sw?
+*.py[co]
+RPMS
+SOURCES
+SRPMS
+venv

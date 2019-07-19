@@ -1,0 +1,33 @@
+{
+  "Description": "Extra role policies for the Jenkins agent",
+  "Parameters": {
+    "AgentStack": {
+      "Description": "AgentStack",
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "Policy": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:ListBucket",
+              "Effect": "Allow",
+              "Resource": "arn:aws:s3:::examplebucket"
+            }
+          ]
+        },
+        "PolicyName": "ExtraPolicy",
+        "Roles": [
+          {
+            "Fn::ImportValue": {
+              "Fn::Sub": "${AgentStack}-AgentRole"
+            }
+          }
+        ]
+      },
+      "Type": "AWS::IAM::Policy"
+    }
+  }
+}

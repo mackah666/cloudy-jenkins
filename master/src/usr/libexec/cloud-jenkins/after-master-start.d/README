@@ -1,0 +1,1 @@
+Executable files in this directory are run as the jenkins user (not root!) after the Jenkins master starts.

@@ -1,0 +1,5 @@
+See the "sudoers" man page (or online at https://www.sudo.ws/man/1.8.19/sudoers.man.html) for full details of the format of these files.
+
+Simple example, permitting the jenkins user to run "/usr/bin/something arg1 arg2 ...argN" as root without a password:
+
+jenkins ALL= (root) NOPASSWD: /usr/bin/something arg1 arg2 ...argN
